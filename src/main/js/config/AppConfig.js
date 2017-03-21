@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const ExpressConfig = require('./ExpressConfig');
 
 class AppConfig {
@@ -7,6 +8,7 @@ class AppConfig {
     }
 
     configure() {
+        dotenv.config();
         const app = this.expressConfig.configure();
         return { app: app, httpPort: 3000 };
     }

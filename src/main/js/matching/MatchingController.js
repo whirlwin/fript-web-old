@@ -1,7 +1,11 @@
+const MatchingService = require('./MatchingService');
+
 class MatchingController {
 
     index(req, res) {
-        res.render('matching/view');
+        MatchingService.getInstance().getMatches().then(matches => {
+            res.render('matching/view', { matches: matches });
+        });
     }
 }
 
