@@ -3,7 +3,10 @@ const express = require('express');
 class ExpressConfig {
 
     configure() {
-        return express();
+        const app = express();
+        app.set('view engine', 'pug');
+        app.set('views', 'src/main/views');
+        return app;
     }
 }
 

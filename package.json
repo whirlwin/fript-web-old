@@ -5,9 +5,13 @@
   "repository": "git@github.com:whirlwin/fript-web.git",
   "author": "Øyvind Ødegård <whirlwin.public+github@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
   "dependencies": {
     "express": "4.15.2",
     "optional-js": "1.2.1",
+    "pug": "^2.0.0-beta11",
     "winston": "^2.3.1"
   },
   "devDependencies": {
