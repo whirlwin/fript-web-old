@@ -5,7 +5,7 @@ let instance;
 class MatchingService {
 
     getMatches() {
-        const getMatchesUrl = process.env.API_BASE_URL + '/match';
+        const getMatchesUrl = process.env.API_BASE_URL + '/pending-match';
         return rp({
             uri: getMatchesUrl,
             json: true
