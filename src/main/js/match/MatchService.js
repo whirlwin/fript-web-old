@@ -2,22 +2,23 @@ const rp = require('request-promise');
 
 let instance;
 
-class MatchingService {
+class MatchService {
 
     getMatches() {
-        const getMatchesUrl = process.env.API_BASE_URL + '/pending-match';
+
+        const url = process.env.API_BASE_URL + '/pending-match';
         return rp({
-            uri: getMatchesUrl,
+            uri: url,
             json: true
         });
     }
 
     static getInstance() {
         if (instance == null) {
-            instance = new MatchingService();
+            instance = new MatchService();
         }
         return instance;
     }
 }
 
-module.exports = MatchingService;
+module.exports = MatchService;
