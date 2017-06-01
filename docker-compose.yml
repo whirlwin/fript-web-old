@@ -1,11 +1,13 @@
-# TODO: Test docker-compose format
+version: '3'
 
 services:
-  web:
+
+  fript-web:
     container_name: fript-web
     build: .
     volumes:
       - ./
+
   fript-api:
     container_name: fript-api
     build: ../fript-api
