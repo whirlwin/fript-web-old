@@ -2,4 +2,6 @@ FROM node:latest
 
 RUN npm install
 
-CMD node /bin/www
+WORKDIR /opt/fript-web
+
+CMD ["node", "bin/www"]
