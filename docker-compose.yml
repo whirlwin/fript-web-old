@@ -2,7 +2,6 @@ version: '3'
 
 services:
 
-services:
   fript-web:
     build: .
     container_name: fript-web
@@ -14,4 +13,5 @@ services:
   fript-api:
     container_name: fript-api
     build: ../fript-api
-     # - .:/opt/fript-a
+    volumes:
+      - ../fript-api/:/opt/fript-api

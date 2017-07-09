@@ -1,7 +1,7 @@
-FROM node:latest
+FROM node
 
 RUN npm install
 
 WORKDIR /opt/fript-web
 
-CMD ["node", "bin/www"]
+CMD ["./node_modules/.bin/nodemon", "-L", "bin/www"]

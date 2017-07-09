@@ -1,7 +1,8 @@
 class IndexController {
 
     renderIndexView(req, res) {
-        res.render('renderMatchView/view');
+        res.send(200);
+        //res.render('matching/view');
     }
 }
 
