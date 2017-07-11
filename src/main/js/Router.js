@@ -1,19 +1,13 @@
-const IndexController = require('./index/IndexController');
-const MatchingController = require('./match/MatchController');
-const OnboardingController = require('./onboarding/OnboardingController');
+const IndexRouter = require('./index/IndexRouter');
+const UserRouter = require('./user/UserRouter');
+const LoginRouter = require('./user/login/LoginRouter');
 
 class Router {
 
-    constructor() {
-        this.indexController = new IndexController();
-        this.matchingController = new MatchingController();
-        this.onboardingController = new OnboardingController();
-    }
-
     route(app) {
-        app.get('/', this.indexController.renderIndexView);
-        app.get('/matching', this.matchingController.renderMatchView);
-        app.get('/onboarding', this.onboardingController.renderOnboardingView);
+        app.use(IndexRouter);
+        app.use(UserRouter);
+        app.use(LoginRouter);
     }
 
     getLoginCallbackUrl() {

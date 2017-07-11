@@ -3,15 +3,19 @@ version: '3'
 services:
 
   fript-web:
-    build: .
     container_name: fript-web
+    build: .
     ports:
       - "3000:3000"
+    environment:
+      - API_BASE_URL=https://fript-api:4000
     volumes:
       - ./:/opt/fript-web
 
   fript-api:
     container_name: fript-api
     build: ../fript-api
+    ports:
+      - "4000:4000"
     volumes:
       - ../fript-api/:/opt/fript-api

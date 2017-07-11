@@ -1,17 +1,16 @@
-const dotenv = require('dotenv');
+const DotEnvConfig = require('./DotEnvConfig');
 const ExpressConfig = require('./ExpressConfig');
-const winston = require("winston");
 
 class AppConfig {
 
     constructor() {
         this.expressConfig = new ExpressConfig();
+        this.dotEnvConfig = new DotEnvConfig();
     }
 
     configure() {
-        dotenv.config();
+        this.dotEnvConfig.configure();
         const app = this.expressConfig.configure();
-        winston.info(`current env: ${process.env.ENV}`);
         return { app: app, httpPort: 3000 };
     }
 }

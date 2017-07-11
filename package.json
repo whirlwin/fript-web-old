@@ -6,7 +6,7 @@
   "author": "Øyvind Ødegård <whirlwin.public+github@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "./scripts/start.sh"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -17,6 +17,7 @@
     "pug": "^2.0.0-beta11",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
+    "underscore": "^1.8.3",
     "winston": "^2.3.1"
   },
   "devDependencies": {

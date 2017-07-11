@@ -4,7 +4,7 @@ let instance;
 
 class UserService {
 
-    logIn() {
+    logIn(accessToken, refreshToken, profile) {
         const url = process.env.API_BASE_URL + '/user/login';
         return rp({
             uri: url,

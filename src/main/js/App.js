@@ -1,5 +1,5 @@
 const AppConfig = require('./config/AppConfig');
-const FacebookAuthService = require('./user/FacebookAuthService');
+const FacebookAuthService = require('./user/login/FacebookAuthService');
 const Router = require('./Router');
 const winston = require('winston');
 
@@ -16,7 +16,7 @@ class App {
 
         this.router.route(app);
 
-        this.facebookAuthService.initialize({loginCallbackUrl: this.router.getLoginCallbackUrl()});
+        this.facebookAuthService.initialize();
 
         app.listen(httpPort, () =>
             winston.info(`app started on port: ${httpPort}`));
