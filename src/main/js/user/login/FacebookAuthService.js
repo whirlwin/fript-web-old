@@ -1,8 +1,8 @@
+const featureToggles = require('../../settings/feature-toggles');
 const passport = require('passport');
 const passportFacebook = require('passport-facebook');
 const UserService = require('../UserService');
-
-let instance;
+const winston = require('winston');
 
 class FacebookAuthService {
 
@@ -23,16 +23,12 @@ class FacebookAuthService {
     }
 
     handleLogin(accessToken, refreshToken, profile, done) {
+        if (featureToggles.debugLogging.enabled) {
+            winston.info(`handleLogin callback invoked: AT: ${accessToken} RT: ${refreshToken} profile: ${profile}`);
+        }
         this.userService.logIn(accessToken).then(profile => {
             console.log(profile);
         });
-    }
-
-    static getInstance() {
-        if (instance === null) {
-            instance = new FacebookAuthService();
-        }
-        return instance;
     }
 }
 
