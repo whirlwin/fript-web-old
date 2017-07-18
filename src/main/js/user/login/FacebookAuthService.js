@@ -10,12 +10,24 @@ class FacebookAuthService {
         this.userService = new UserService();
     }
 
-    initialize() {
+    initialize(app) {
+        app.use(passport.initialize());
+        app.use(passport.session());
+
         passport.use(new passportFacebook.Strategy({
             clientID: process.env.FACEBOOK_APP_ID,
             clientSecret: process.env.FACEBOOK_APP_SECRET,
             callbackURL: "/login/facebook/callback"
         }, this.handleLogin.bind(this)));
+
+        passport.serializeUser(function(user, done) {
+            done(null, user);
+        });
+
+        passport.deserializeUser(function(user, done) {
+            done(null, user);
+        });
+
     }
 
     static authenticate() {
@@ -24,10 +36,17 @@ class FacebookAuthService {
 
     handleLogin(accessToken, refreshToken, profile, done) {
         if (featureToggles.debugLogging.enabled) {
-            winston.info(`handleLogin callback invoked: AT: ${accessToken} RT: ${refreshToken} profile: ${profile}`);
+            winston.info(`handleLogin callback invoked:
+                AT: ${accessToken}
+                RT: ${refreshToken}
+                Profile ID: ${profile.id}`
+            );
         }
+
         this.userService.logIn(accessToken).then(profile => {
-            console.log(profile);
+            done(null, profile);
+        }).catch(err => {
+            done(err);
         });
     }
 }

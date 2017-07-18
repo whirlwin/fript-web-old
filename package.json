@@ -9,8 +9,10 @@
     "start": "./scripts/start.sh"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "express": "4.15.2",
+    "express-session": "^1.15.3",
     "optional-js": "1.2.1",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",

@@ -7,7 +7,7 @@ const loginController = new LoginController();
 router.get('/login', loginController.renderLoginView.bind(loginController));
 router.get('/login/facebook', LoginController.redirectToFacebookLogin());
 router.get('/login/facebook/callback', require('passport').authenticate('facebook', {
-    successRedirect: '/login/facebook/success',
+    successRedirect: '/',
     failureRedirect: '/login/facebook/failure'
 }));
 

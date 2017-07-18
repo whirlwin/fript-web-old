@@ -10,6 +10,10 @@ class LoginController {
         res.render('user/login/view');
     }
 
+    signUp(req, res) {
+
+    }
+
     static redirectToFacebookLogin() {
         return FacebookAuthService.authenticate();
     }

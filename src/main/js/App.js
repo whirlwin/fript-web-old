@@ -14,9 +14,9 @@ class App {
     start() {
         const { app, httpPort } = this.appConfig.configure();
 
-        this.router.route(app);
+        this.facebookAuthService.initialize(app);
 
-        this.facebookAuthService.initialize();
+        this.router.route(app);
 
         app.listen(httpPort, () =>
             winston.info(`app started on port: ${httpPort}`));
