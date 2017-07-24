@@ -6,7 +6,8 @@ const router = express.Router();
 const userController = new UserController();
 
 //router.get('/user/sign-up', UserController.signUp.bind(userController));
-router.get('/user/sign-up', passport.authenticate('facebook', {
+router.get('/sign-up', userController.renderSignUp.bind(userController));
+router.get('/facebook/sign-up', passport.authenticate('facebook', {
     state: {foo: "bar"}
 }));
 

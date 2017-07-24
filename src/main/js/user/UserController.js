@@ -9,6 +9,10 @@ class UserController {
         this.userService = new UserService();
     }
 
+    renderSignUp(req, res) {
+        res.render('./user/sign-up');
+    }
+
     signUp(req, res) {
         if (featureToggles.debugLogging.enabled) {
             winston.info('Signing up user');

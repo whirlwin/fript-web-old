@@ -1,7 +1,7 @@
 class OnboardingController {
 
     renderOnboardingView(req, res) {
-        res.render('renderMatchView/view');
+        res.render('onboarding/onboarding');
     }
 }
 
