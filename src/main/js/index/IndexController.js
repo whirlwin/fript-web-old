@@ -2,7 +2,7 @@ class IndexController {
 
     renderIndexView(req, res) {
         console.log(req.user);
-        res.render('index/view', { user: req.user });
+        res.render('index/index', { user: req.user });
     }
 }
 
