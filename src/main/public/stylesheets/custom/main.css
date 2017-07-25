@@ -4,3 +4,7 @@
 .icon-block .material-icons {
     font-size: inherit;
 }
+
+#facebook-login-button {
+    width: 50%;
+}

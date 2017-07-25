@@ -1,6 +1,6 @@
 const featureToggles = require('../settings/feature-toggles');
 const UserService = require('./UserService')
-const FacebookAuthService = require('./login/FacebookAuthService');
+const FacebookAuthService = require('../login/FacebookAuthService');
 const winston = require('winston');
 
 class UserController {

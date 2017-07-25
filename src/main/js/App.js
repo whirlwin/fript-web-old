@@ -1,5 +1,5 @@
 const AppConfig = require('./config/AppConfig');
-const FacebookAuthService = require('./user/login/FacebookAuthService');
+const FacebookAuthService = require('./login/FacebookAuthService');
 const Router = require('./Router');
 const winston = require('winston');
 

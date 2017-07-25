@@ -10,16 +10,18 @@ class ExpressConfig {
         app.set('view engine', 'pug');
         app.set('views', 'src/main/views');
         this.configureSession(app);
+        app.use(this.configureSession());
         app.use(cookieParser());
+        app.use(express.static('src/main/public'));
         return app;
     }
 
-    configureSession(app) {
-        app.use(expressSession({
+    configureSession() {
+        return expressSession({
             secret: this.getSessionSecret(),
             resave: false,
             saveUninitialized: false
-        }));
+        });
     }
 
     getSessionSecret() {

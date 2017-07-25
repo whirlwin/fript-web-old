@@ -1,7 +1,7 @@
-const featureToggles = require('../../settings/feature-toggles');
+const featureToggles = require('../settings/feature-toggles');
 const passport = require('passport');
 const passportFacebook = require('passport-facebook');
-const UserService = require('../UserService');
+const UserService = require('../user/UserService');
 const winston = require('winston');
 
 class FacebookAuthService {

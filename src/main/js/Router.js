@@ -1,6 +1,6 @@
 const IndexRouter = require('./index/IndexRouter');
 const UserRouter = require('./user/UserRouter');
-const LoginRouter = require('./user/login/LoginRouter');
+const LoginRouter = require('./login/LoginRouter');
 const OnboardingRouter = require('./onboarding/OnboardingRouter');
 
 class Router {
