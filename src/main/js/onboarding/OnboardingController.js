@@ -1,5 +1,3 @@
-const Optional = require('optional-js');
-
 class OnboardingController {
 
     redirectToOnboardingStep(req, res) {

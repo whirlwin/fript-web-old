@@ -1,7 +1,5 @@
 const rp = require('request-promise');
 
-let instance;
-
 class UserService {
 
     logIn(accessToken, refreshToken, profile) {
