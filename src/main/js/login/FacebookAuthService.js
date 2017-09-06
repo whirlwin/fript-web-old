@@ -34,16 +34,17 @@ class FacebookAuthService {
         return passport.authenticate('facebook');
     }
 
-    handleLogin(accessToken, refreshToken, profile, done) {
+    // Refresh token is undefined in Facebook OAuth 2.0
+    handleLogin(accessToken, undefinedRefreshToken, profile, done) {
         if (featureToggles.debugLogging.enabled) {
             winston.info(`handleLogin callback invoked:
                 AT: ${accessToken}
-                RT: ${refreshToken}
+                RT: ${undefinedRefreshToken}
                 Profile ID: ${profile.id}`
             );
         }
 
-        this.userService.logIn(accessToken).then(profile => {
+        this.userService.logIn(accessToken, profile).then(profile => {
             done(null, profile);
         }).catch(err => {
             winston.error("Failed to log in user with error: " + JSON.stringify(err));

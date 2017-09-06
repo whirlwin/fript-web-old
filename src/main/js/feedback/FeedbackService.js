@@ -1,15 +1,15 @@
 const FriptApiClient = require('../FriptApiClient');
 
-class MatchService {
+class FeedbackService {
 
     constructor() {
         this.friptApiClient = new FriptApiClient();
     }
 
-    getMatches() {
-        return this.friptApiClient.get('/pending-match');
+    leaveFeedback(feedback) {
+        this.friptApiClient.post('/feedback')
     }
 
 }
 
-module.exports = MatchService;
+module.exports = FeedbackService;

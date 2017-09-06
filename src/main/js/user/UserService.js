@@ -1,21 +1,18 @@
 const rp = require('request-promise');
+const FriptApiClient = require('../FriptApiClient');
 
 class UserService {
 
-    logIn(accessToken, refreshToken, profile) {
-        const url = `${process.env.API_BASE_URL}/user/login?facebookToken=${accessToken}`;
-        return rp({
-            uri: url,
-            json: true
-        });
+    constructor() {
+        this.friptApiClient = new FriptApiClient();
+    }
+
+    logIn(facebookToken, profile) {
+        return this.friptApiClient.post('/user/login', { facebookToken, profile });
     }
 
     getUserById(userId) {
-        const url = `${process.env.API_BASE_URL}/user?id=${userId}`;
-        return rp({
-            uri: url,
-            json: true
-        });
+        return this.friptApiClient.get('/user?id=' + userId);
     }
 }
 
